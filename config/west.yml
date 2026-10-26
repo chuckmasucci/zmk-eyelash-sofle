@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: eyelash
       url-base: https://github.com/a741725193
-    - name: mctechnology17
-      url-base: https://github.com/mctechnology17
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -13,9 +11,6 @@ manifest:
       import: app/west.yml
     - name: zmk-board-eyelash
       remote: eyelash
-      revision: main
-    - name: zmk-nice-oled
-      remote: mctechnology17
       revision: main
   self:
     path: config
