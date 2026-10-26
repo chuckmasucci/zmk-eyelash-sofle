@@ -50,10 +50,10 @@ docker run --rm \
         python3 - <<EOF > targets.txt
 import yaml
 for t in yaml.safe_load(open("/repo/build.yaml"))["include"]:
-    print("\t".join([t["board"], t.get("shield", ""), t.get("snippet", ""), t.get("cmake-args", "")]))
+    print("|".join([t["board"], t.get("shield", ""), t.get("snippet", ""), t.get("cmake-args", "")]))
 EOF
 
-        while IFS=$'\''\t'\'' read -r board shield snippet cmake_args; do
+        while IFS="|" read -r board shield snippet cmake_args; do
             [ -n "$FILTER" ] && [[ "$shield" != *"$FILTER"* ]] && continue
             name="${shield// /-}${shield:+-}$board"
             echo "=== Building $name"
